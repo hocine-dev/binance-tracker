@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptocurrency Ratio</title>
+    <title>Cryptocurrency Ratio Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Cryptocurrency Ratio</h1>
-        <div class="ratio" id="ratioValue">Fetching ratio...</div>
+        <header>
+            <h1>Cryptocurrency Ratio Tracker</h1>
+        </header>
+        
+        <main>
+            <div class="ratio" id="ratioValue">Fetching ratio...</div>
+
+            <section class="info">
+                <h2>About This App</h2>
+                <p>This web app tracks the ratio between AXS/USDT and EOS/USDT cryptocurrencies from Binance every 5 minutes. It provides real-time updates and displays the current ratio.</p>
+                <p>Developed by Hocine Dev, this app uses Node.js for the backend to fetch data from the Binance API and JavaScript with HTML/CSS for the frontend.</p>
+            </section>
+        </main>
+        <footer>
+            <p>Developed by Hocine Dev. Find me on <a href="https://github.com/hocine-dev">GitHub</a>.</p>
+        </footer>
     </div>
+
+    
+
     <script src="script.js"></script>
 </body>
 </html>

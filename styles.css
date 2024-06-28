@@ -1,25 +1,126 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark grey text */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
+    background-color: #fff; /* White container background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 20px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #f0b90b; /* Binance yellow */
+}
+
+main {
+    margin-top: 20px;
 }
 
 .ratio {
-    font-size: 24px;
-    text-align: center;
+    font-size: 3rem;
+    padding: 15px;
+    border-radius: 8px;
     margin-bottom: 20px;
+    background-color: #1c1e26; /* Dark background */
+    color: #f0b90b; /* Binance yellow */
+}
+
+.info {
+    text-align: left;
+    color: #666; /* Dark grey text */
+}
+
+.info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333; /* Dark grey heading */
+}
+
+.info p {
+    margin-bottom: 15px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 90%; /* Adjust max-width for larger screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 25px; /* Adjust padding for medium-sized screens */
+    }
+
+    h1 {
+        font-size: 2.2rem; /* Adjust font size for headings */
+    }
+
+    .ratio {
+        font-size: 2.8rem; /* Adjust font size for ratio display */
+    }
+
+    .info h2 {
+        font-size: 1.7rem; /* Adjust font size for info headings */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Further adjust padding for tablets */
+    }
+
+    h1 {
+        font-size: 2rem; /* Further adjust font size for headings */
+    }
+
+    .ratio {
+        font-size: 2.5rem; /* Further adjust font size for ratio display */
+    }
+
+    .info h2 {
+        font-size: 1.5rem; /* Further adjust font size for info headings */
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 15px; /* Adjust padding for smartphones */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Adjust font size for headings on smartphones */
+    }
+
+    .ratio {
+        font-size: 2rem; /* Adjust font size for ratio display on smartphones */
+    }
+
+    .info h2 {
+        font-size: 1.3rem; /* Adjust font size for info headings on smartphones */
+    }
 }
