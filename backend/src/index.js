@@ -10,9 +10,16 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files (only index.html)
+// Serve static files from the 'binance-tracker' directory
+const staticPath = path.join(__dirname, '..', '..');
+app.use(express.static(staticPath));
+
+// API Routes
+app.use('/api', require('./routes/api'));
+
+// Default route handler
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'index.html'));
+    res.sendFile(path.join(staticPath, 'index.html'));
 });
 
 // Start server

@@ -124,3 +124,40 @@ main {
         font-size: 1.3rem; /* Adjust font size for info headings on smartphones */
     }
 }
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.checkbox-container input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.checkbox-container input[type="checkbox"]:checked::before {
+    content: '✔';
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    line-height: 18px;
+}
+
+.checkbox-container label {
+    cursor: pointer;
+}
