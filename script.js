@@ -93,5 +93,5 @@ document.addEventListener("DOMContentLoaded", () => {
   checkbox.checked = emailSent || false;
   updateUI();
   // Update the ratio every 5 minutes (300,000 milliseconds)
-  setInterval(updateUI, 300000);
+  setInterval(updateUI, 60000);
 });
