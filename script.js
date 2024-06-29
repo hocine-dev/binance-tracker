@@ -3,7 +3,7 @@ var checkbox = document.getElementById("emailSent");
 // Function to fetch ratio data
 async function fetchRatio() {
   try {
-    const response = await fetch("https://tizi-industrie.com/api/ratio");
+    const response = await fetch("https://tizi-industrie.com/backend/src/routes/api.js");
     const data = await response.json();
     return data.ratio;
   } catch (error) {
