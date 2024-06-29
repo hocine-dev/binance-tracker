@@ -15,7 +15,7 @@ const staticPath = path.join(__dirname, '../../');
 app.use(express.static(staticPath));
 
 // API Routes
-app.use('/api', require('./backend/src/routes/api'));
+app.use('/api', require('./routes/api'));
 
 // Default route handler
 app.get('/', (req, res) => {
