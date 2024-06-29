@@ -3,7 +3,7 @@ var checkbox = document.getElementById("emailSent");
 // Function to fetch ratio data
 async function fetchRatio() {
   try {
-    const response = await fetch("http://localhost:5000/api/ratio");
+    const response = await fetch("https://tizi-industrie.com/api/ratio");
     const data = await response.json();
     return data.ratio;
   } catch (error) {
@@ -93,5 +93,5 @@ document.addEventListener("DOMContentLoaded", () => {
   checkbox.checked = emailSent || false;
   updateUI();
   // Update the ratio every 5 minutes (300,000 milliseconds)
-  setInterval(updateUI, 300000);
+  setInterval(updateUI, 60000);
 });
