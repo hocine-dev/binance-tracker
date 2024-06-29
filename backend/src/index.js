@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from the 'binance-tracker' directory
-const staticPath = path.join(__dirname, '..', '..');
+const staticPath = path.join(__dirname, '../../');
 app.use(express.static(staticPath));
 
 // API Routes
