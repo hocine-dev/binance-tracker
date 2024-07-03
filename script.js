@@ -20,7 +20,7 @@ async function fetchRatio(route) {
 }
 
 // Function to send an email using EmailJS
-function sendEmail(subject, message) {
+function sendEmail(subject, message, pair) {
   emailjs
     .send("service_9nq07bi", "template_ftu6i5w", {
       from_name: "crypto_tracker@gmail.com",
@@ -32,13 +32,23 @@ function sendEmail(subject, message) {
     .then(
       function (response) {
         console.log("Email sent successfully!", response.status, response.text);
-        checkbox.checked = !checkbox.checked;
+        if (pair === "eso") {
+          eoscheckbox.checked = !eoscheckbox.checked;
+        } else {
+          filcheckbox.checked = !filcheckbox.checked;
+        }
+
         localStorage.setItem("emailSent", checkbox.checked);
       },
       function (error) {
         console.error("Failed to send email...", error);
-        checkbox.checked = !checkbox.checked;
-        localStorage.setItem("emailSent", checkbox.checked);
+        if (pair === "eso") {
+          eoscheckbox.checked = !eoscheckbox.checked;
+          localStorage.setItem("eosemailSent", eoscheckbox.checked);
+        } else {
+          filcheckbox.checked = !filcheckbox.checked;
+          localStorage.setItem("filemailSent", filcheckbox.checked);
+        }
       }
     );
 }
@@ -46,12 +56,14 @@ function sendEmail(subject, message) {
 // Function to update UI with fetched ratios and apply conditional styling
 async function updateUI() {
   try {
-    const ratioEOS = await fetchRatio('eos');
-    const ratioFIL = await fetchRatio('fil');
+    const ratioEOS = await fetchRatio("eos");
+    const ratioFIL = await fetchRatio("fil");
 
     if (ratioEOS !== null) {
       const ratioEOSElement = document.getElementById("ratioValueEOS");
-      ratioEOSElement.textContent = `Current EOS/AXS Ratio: ${ratioEOS.toFixed(2)}`;
+      ratioEOSElement.textContent = `Current EOS/AXS Ratio: ${ratioEOS.toFixed(
+        2
+      )}`;
 
       if (!eoscheckbox.checked) {
         // Apply conditional styling based on EOS ratio value
@@ -60,14 +72,18 @@ async function updateUI() {
           ratioEOSElement.style.color = "white"; // Optional: Change text color for better contrast
           sendEmail(
             "Sell EOS",
-            `The current EOS ratio is ${ratioEOS.toFixed(2)}. Consider selling EOS.`
+            `The current EOS ratio is ${ratioEOS.toFixed(
+              2
+            )}. Consider selling EOS and buying AXS.`,'eos'
           );
         } else if (ratioEOS >= 10.69) {
           ratioEOSElement.style.backgroundColor = "green";
           ratioEOSElement.style.color = "white"; // Optional: Change text color for better contrast
           sendEmail(
             "Sell AXS",
-            `The current EOS ratio is ${ratioEOS.toFixed(2)}. Consider selling AXS.`
+            `The current EOS ratio is ${ratioEOS.toFixed(
+              2
+            )}. Consider selling AXS and buying EOS.`,'eos'
           );
         } else {
           ratioEOSElement.style.backgroundColor = ""; // Reset background color if not in specified range
@@ -80,7 +96,7 @@ async function updateUI() {
             "Take Profit",
             `The current EOS ratio is ${ratioEOS.toFixed(
               2
-            )}. It's time to take profit.`
+            )}. It's time to take profit.`,'eos'
           );
         }
       }
@@ -94,7 +110,9 @@ async function updateUI() {
 
     if (ratioFIL !== null) {
       const ratioFILElement = document.getElementById("ratioValueFIL");
-      ratioFILElement.textContent = `Current FIL/AXS Ratio: ${ratioFIL.toFixed(2)}`;
+      ratioFILElement.textContent = `Current FIL/AXS Ratio: ${ratioFIL.toFixed(
+        2
+      )}`;
 
       if (!filcheckbox.checked) {
         // Apply conditional styling based on FIL ratio value
@@ -103,14 +121,18 @@ async function updateUI() {
           ratioFILElement.style.color = "white"; // Optional: Change text color for better contrast
           sendEmail(
             "Sell FIL",
-            `The current FIL ratio is ${ratioFIL.toFixed(2)}. Consider selling FIL.`
+            `The current FIL ratio is ${ratioFIL.toFixed(
+              2
+            )}. Consider selling FIL and buying AXS.`,'fil'
           );
         } else if (ratioFIL >= 1.40) {
           ratioFILElement.style.backgroundColor = "green";
           ratioFILElement.style.color = "white"; // Optional: Change text color for better contrast
           sendEmail(
             "Sell AXS",
-            `The current FIL ratio is ${ratioFIL.toFixed(2)}. Consider selling AXS.`
+            `The current FIL ratio is ${ratioFIL.toFixed(
+              2
+            )}. Consider selling AXS and buying FIL.`,'fil'
           );
         } else {
           ratioFILElement.style.backgroundColor = ""; // Reset background color if not in specified range
@@ -123,7 +145,7 @@ async function updateUI() {
             "Take Profit",
             `The current FIL ratio is ${ratioFIL.toFixed(
               2
-            )}. It's time to take profit.`
+            )}. It's time to take profit.`,'fil'
           );
         }
       }

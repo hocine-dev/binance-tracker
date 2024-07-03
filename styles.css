@@ -32,8 +32,9 @@ header {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #f0b90b; /* Binance yellow */
+    margin-block: 10px;
 }
 
 main {
@@ -52,6 +53,7 @@ main {
 .info {
     text-align: left;
     color: #666; /* Dark grey text */
+    margin-top: 20px;
 }
 
 .info h2 {
@@ -131,6 +133,7 @@ main {
     gap: 10px;
     font-family: Arial, sans-serif;
     color: #333;
+    justify-content: center;
 }
 
 .checkbox-container input[type="checkbox"] {
