@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Ratio Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("_TluSVnxVsynPG4E");
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Cryptocurrency Ratio Tracker</h1>
+        </header>
+        <main>
+            <div class="ratio-container">
+                <div id="ratioValueEOS" class="ratio"></div>
+                <div id="ratioValueFIL" class="ratio"></div>
+            </div>
+        </main>
+        <div class="checkbox-container">
+            <input type="checkbox" id="eosemailSent" disabled>
+            <label for="eosemailSent">eos waiting profit</label>
+            <input type="checkbox" id="filemailSent" disabled>
+            <label for="filemailSent">fil waiting profit</label>
+        </div>
+        <div class="info">
+            <h2>About This App</h2>
+            <p>This web app tracks the ratio between AXS/USDT and EOS/USDT, as well as AXS/USDT and FIL/USDT pairs on Binance every 1 minutes. It provides real-time updates and displays the current ratios.</p>
+            <p>The app also sends email alerts to buy or sell AXS, EOS, or FIL based on the calculated ratios, helping you make informed trading decisions.</p>
+        </div>
+        <footer>
+            <p>Developed by Hocine Dev. Find me on <a href="https://github.com/hocine-dev">GitHub</a>.</p>
+        </footer>        
+    </div>
+
+    
+    
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

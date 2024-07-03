@@ -41,7 +41,7 @@ main {
 }
 
 .ratio {
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -160,4 +160,17 @@ main {
 
 .checkbox-container label {
     cursor: pointer;
+}
+
+/* New styles for multiple ratios */
+.ratio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.ratio-container .ratio {
+    width: 100%;
+    max-width: 90%;
 }
